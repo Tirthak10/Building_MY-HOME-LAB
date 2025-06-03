@@ -89,6 +89,5 @@ Common names for Type-1 hypervisors:
 
 ---
 
-![End Illustration](![Screenshot 2025-06-03 124547](https://github.com/user-attachments/assets/29077a81-59d9-4193-823e-9568489912cf)
-)
+[TYPW-1 Virtalization](![Screenshot 2025-06-03 124547](https://github.com/user-attachments/assets/29077a81-59d9-4193-823e-9568489912cf)
 **Virtualization Explained by Andrew Bellini**
