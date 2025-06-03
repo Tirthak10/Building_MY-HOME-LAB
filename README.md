@@ -61,8 +61,8 @@ Key hardware impacted:
 1. VMware Workstation (Type-2)  
 2. VirtualBox - Oracle  
 
-![Virtualization Explained](![Screenshot 2025-06-03 121810](https://github.com/user-attachments/assets/5eae74d5-7dca-4c2f-b8f1-54f27af93c48)
-)  
+[Virtualization Explained]([Screenshot 2025-06-03 121810](https://github.com/user-attachments/assets/5eae74d5-7dca-4c2f-b8f1-54f27af93c48)
+
 **Virtualization Explained by Andrew Bellini**
 
 ---
