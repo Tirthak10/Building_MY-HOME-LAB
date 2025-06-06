@@ -91,3 +91,155 @@ Common names for Type-1 hypervisors:
 
 [TYPW-1 Virtalization]![Screenshot 2025-06-03 124547](https://github.com/user-attachments/assets/29077a81-59d9-4193-823e-9568489912cf)
 **Virtualization Explained by Andrew Bellini**
+
+# 🛡️ Cybersecurity Home Lab (Offense & Defense)
+
+A complete, step-by-step guide to building a secure, isolated home lab for both Red Team (offensive) and Blue Team (defensive) cybersecurity practice.
+
+---
+
+## 📘 Table of Contents
+
+1. [🎯 Objectives](#objectives)  
+2. [💡 Why Build a Home Lab?](#why-build-a-home-lab)  
+3. [🛠️ Requirements](#requirements)  
+   - [Hardware](#hardware)  
+   - [Network](#network)  
+   - [Software & Tools](#software--tools)  
+4. [🧱 Step-by-Step Setup](#step-by-step-setup)  
+   - [1. Planning & Budgeting](#1-planning--budgeting)  
+   - [2. Choose Your Hypervisor & Host](#2-choose-your-hypervisor--host)  
+   - [3. Design Network Architecture](#3-design-network-architecture)  
+   - [4. Deploy Core VMs](#4-deploy-core-vms)  
+   - [5. Build the Red Team Environment](#5-build-the-red-team-environment)  
+   - [6. Build the Blue Team Environment](#6-build-the-blue-team-environment)  
+   - [7. Simulate Attacks & Monitor](#7-simulate-attacks--monitor)  
+   - [8. Detection, Response & Automation](#8-detection-response--automation)  
+5. [🔐 Security Best Practices](#security-best-practices)  
+6. [📚 Learning Resources](#learning-resources)  
+7. [🧩 Next Steps](#next-steps)  
+
+---
+
+## 🎯 Objectives
+
+- Practice offensive tactics: reconnaissance, exploitation, post-exploitation  
+- Implement defensive strategies: network monitoring, SIEM integration, incident response  
+- Combine attack, detection & response workflows end-to-end  
+- Build a documented, portfolio-ready lab setup  
+
+---
+
+## 💡 Why Build a Home Lab?
+
+- Gain realistic, hands-on cybersecurity skills in a controlled environment  
+- Safely analyze malware, test payloads, and study detection patterns  
+- Simulate enterprise-style environments (Active Directory, VLANs, DMZs)  
+- Enhance both Red Team and Blue Team capabilities simultaneously  
+
+---
+
+## 🛠️ Requirements
+
+### 🔧 Hardware
+
+- Host machine: ≥ Intel i5 / Ryzen 5, 16 GB RAM, 250 GB SSD (500 GB+ preferred)  
+- Optional: dedicated mini-PC, Intel NUC, or repurposed laptop  
+- Network: Gigabit switch, spare router or mini firewall  
+
+### 🌐 Network
+
+- Isolate lab and home networks using VLANs or separate router  
+- Use pfSense or similar to segment and manage traffic between zones  
+
+### 🧰 Software & Tools
+
+- **Hypervisor**: VMware Workstation/ESXi, Proxmox, VirtualBox, or Hyper-V  
+- **Operating Systems**: Windows Server, Windows Client, Ubuntu/Debian, Kali Linux  
+- **Red Team Tools**: Metasploit, msfvenom, Caldera, Nmap, OpenVAS  
+- **Blue Team Tools**: pfSense/OPNsense, Suricata/Snort, ELK stack, Wazuh, Security Onion, Splunk, Sysmon  
+- **Vulnerable VMs**: Metasploitable, DVWA, OWASP Broken Web App, Damn Vulnerable Linux  
+
+---
+
+## 🧱 Step-by-Step Setup
+
+### 1. Planning & Budgeting
+
+- Define goals (e.g. penetration testing, threat detection, DFIR)  
+- Estimate budget for hardware, networking gear, and optional licenses  
+- Consider start-up and expansion costs  
+
+### 2. Choose Your Hypervisor & Host
+
+- Decide between local virtualization (e.g. VirtualBox, VMware) vs bare-metal (Proxmox, ESXi)  
+- Ensure virtualization is enabled (VT-x/AMD-V)  
+- Configure the host with sufficient CPU, RAM, storage, and snapshots/backups  
+
+### 3. Design Network Architecture
+
+- Set up VLANs or separate subnets: LAB vs HOME  
+- Create network segments: External (internet), DMZ (C2 servers), Internal (active directory, endpoints)  
+- Place pfSense as gateway/firewall controlling traffic across segments  
+
+### 4. Deploy Core VMs
+
+- **Domain Controller**: Windows Server with AD & DNS  
+- **SIEM**: Wazuh or ELK stack on Linux host  
+- **Firewall**: pfSense VM managing lab/home networks  
+
+### 5. Build the Red Team Environment
+
+- Install Kali Linux with tools like Metasploit, Nmap  
+- Deploy Caldera C2 server for automated adversary simulation  
+- Spin up vulnerable hosts (DVWA, Metasploitable, etc.) in lab internal network  
+
+### 6. Build the Blue Team Environment
+
+- Install Suricata/Snort on pfSense or dedicated VM  
+- Deploy centralized logging: Wazuh, Security Onion, or Splunk  
+- Configure agents (Windows/Linux) for log forwarding  
+
+### 7. Simulate Attacks & Monitor
+
+- Use msfvenom to craft payloads targeting internal Windows VM  
+- Launch adversarial campaigns via Caldera  
+- Ensure alerts are generated and indexed in your SIEM console  
+
+### 8. Detection, Response & Automation
+
+- Develop detection rules and dashboards in SIEM (e.g., Wazuh alerts, Splunk queries)  
+- Automate responses: block malicious IPs via pfSense DHCP, firewall rules, scripts  
+- Conduct DFIR drills: analyze logs, trace attacks, document findings  
+
+---
+
+## 🔐 Security Best Practices
+
+- Keep lab fully segregated—never mix with personal devices  
+- Regularly patch and snapshot VMs, especially those exposed to attacks  
+- Use strong, unique credentials and enable disk encryption where possible  
+- Maintain thorough documentation: network diagrams, configurations, and labs  
+
+---
+
+## 📚 Learning Resources
+
+- Red Team / Blue Team guides and tutorials  
+- Reddit blue team home-lab series  
+- In-depth blog posts on lab architecture and tool setup  
+- Hands‑on video walkthroughs (YouTube/NID courses)  
+- Community projects, vulnerable VM repositories, open threat simulation frameworks  
+
+---
+
+## 🧩 Next Steps
+
+- Add diagrams (e.g., draw.io, Lucidchart) and infrastructure maps  
+- Embed config snippets for Suricata, Wazuh, Caldera, etc.  
+- Track progress via commits, notes on detection rules, incident write‑ups  
+- Expand lab: cloud integration, ransomware simulation, IoT, routers, automation  
+
+---
+
+*Happy hacking and defending! Feel free to customize any section or ask for deeper config samples.*
